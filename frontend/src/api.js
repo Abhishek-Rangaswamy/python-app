@@ -1,4 +1,6 @@
-const base = "/api/tasks";
+const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "";
+const apiBaseUrl = rawApiBaseUrl.replace(/\/+$/, "");
+const base = `${apiBaseUrl}/api/tasks`;
 
 export async function fetchTasks() {
   const res = await fetch(base);
